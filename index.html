@@ -3,115 +3,718 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DealTrotter</title>
-    <meta name="description" content="DealTrotter helps users discover and compare product deals from multiple online stores.">
+
+    <title>DealTrotter | Find Better Deals</title>
+
+    <meta name="description"
+          content="DealTrotter helps shoppers discover, compare and find better prices across online stores.">
+
     <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f3f6fb;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f4f7fb;
             color: #07101f;
         }
 
-        .header {
+        header {
             background: white;
-            padding: 25px 20px;
-            text-align: center;
+            padding: 22px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e8ebf0;
         }
 
         .logo {
-            font-size: 36px;
-            font-weight: bold;
+            font-size: 30px;
+            font-weight: 800;
         }
 
         .logo span {
             color: #1a5cff;
         }
 
+        nav a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+        }
+
         .hero {
-            max-width: 850px;
-            margin: 50px auto;
-            padding: 30px 20px;
             text-align: center;
+            padding: 90px 20px 80px;
+            background: white;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #eaf0ff;
+            color: #1a5cff;
+            padding: 9px 16px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 20px;
         }
 
         h1 {
-            font-size: 42px;
-            margin-bottom: 15px;
+            font-size: 48px;
+            max-width: 800px;
+            margin: 0 auto 20px;
+            line-height: 1.1;
         }
 
-        p {
-            font-size: 18px;
-            line-height: 1.6;
-            color: #555;
+        .hero p {
+            max-width: 650px;
+            margin: auto;
+            font-size: 19px;
+            line-height: 1.7;
+            color: #5c6470;
+        }
+
+        .hero-buttons {
+            margin-top: 30px;
         }
 
         .button {
             display: inline-block;
-            margin-top: 25px;
-            padding: 15px 28px;
+            padding: 15px 25px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 6px;
+        }
+
+        .primary {
             background: #1a5cff;
             color: white;
-            text-decoration: none;
-            border-radius: 12px;
+        }
+
+        .secondary {
+            background: #eef1f6;
+            color: #07101f;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 70px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .section-description {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            color: #626a76;
+            line-height: 1.7;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 28px;
+            border-radius: 20px;
+            border: 1px solid #e7eaf0;
+        }
+
+        .icon {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            margin: 0 0 10px;
+            font-size: 20px;
+        }
+
+        .card p {
+            color: #646c78;
+            line-height: 1.6;
+        }
+
+        .how {
+            background: #07101f;
+            color: white;
+        }
+
+        .how .section-description {
+            color: #c6ccd5;
+        }
+
+        .how .card {
+            color: #07101f;
+        }
+
+        .number {
+            font-size: 32px;
+            font-weight: bold;
+            color: #1a5cff;
+        }
+
+        .stores {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .store {
+            background: white;
+            padding: 15px 24px;
+            border-radius: 30px;
+            border: 1px solid #e3e7ed;
             font-weight: bold;
         }
 
-        .section {
-            max-width: 850px;
-            margin: 20px auto 60px;
-            padding: 30px 20px;
+        .app-section {
             background: white;
-            border-radius: 20px;
+            text-align: center;
+            border-radius: 25px;
+            padding: 55px 25px;
+        }
+
+        .app-section h2 {
+            font-size: 34px;
+            margin-bottom: 15px;
+        }
+
+        .app-section p {
+            max-width: 650px;
+            margin: auto;
+            color: #626a76;
+            line-height: 1.7;
+        }
+
+        .legal {
+            background: #eef1f5;
+        }
+
+        .legal-box {
+            background: white;
+            padding: 30px;
+            border-radius: 18px;
+            margin-bottom: 20px;
+        }
+
+        .legal-box h3 {
+            margin-top: 0;
+        }
+
+        .legal-box p {
+            color: #606875;
+            line-height: 1.7;
+        }
+
+        .contact-email {
+            text-align: center;
+            font-size: 18px;
+        }
+
+        .contact-email a {
+            color: #1a5cff;
+            text-decoration: none;
+            font-weight: bold;
         }
 
         footer {
+            background: #07101f;
+            color: #c7ccd4;
             text-align: center;
-            padding: 30px;
-            color: #777;
+            padding: 40px 20px;
         }
+
+        footer .footer-logo {
+            color: white;
+            font-size: 25px;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+
+        footer span {
+            color: #4b82ff;
+        }
+
+        footer a {
+            color: #c7ccd4;
+            text-decoration: none;
+            margin: 0 8px;
+        }
+
+        .copyright {
+            margin-top: 20px;
+            font-size: 13px;
+            color: #8d95a2;
+        }
+
+        @media (max-width: 750px) {
+
+            header {
+                display: block;
+                text-align: center;
+            }
+
+            nav {
+                margin-top: 15px;
+            }
+
+            nav a {
+                margin: 0 7px;
+                font-size: 13px;
+            }
+
+            h1 {
+                font-size: 36px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
     </style>
 </head>
 
 <body>
 
-<header class="header">
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header>
+
     <div class="logo">
         Deal<span>Trotter</span>
     </div>
+
+    <nav>
+        <a href="#about">About</a>
+        <a href="#how">How It Works</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
 </header>
 
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
 <section class="hero">
-    <h1>Find the Best Price</h1>
+
+    <div class="badge">
+        SMARTER SHOPPING • BETTER DISCOVERY
+    </div>
+
+    <h1>
+        Find the Best Price.
+        Discover Better Deals.
+    </h1>
+
     <p>
-        DealTrotter is a price comparison platform that helps
-        users discover and compare product deals from multiple
-        online stores.
+        DealTrotter is a price comparison and deal discovery
+        platform designed to help shoppers discover products
+        and compare offers from participating online stores.
     </p>
 
-    <a class="button" href="#about">Learn More</a>
+    <div class="hero-buttons">
+
+        <a class="button primary" href="#how">
+            How It Works
+        </a>
+
+        <a class="button secondary" href="#about">
+            Learn More
+        </a>
+
+    </div>
+
 </section>
 
-<section class="section" id="about">
-    <h2>About DealTrotter</h2>
 
-    <p>
-        DealTrotter helps shoppers discover products and compare
-        deals across participating online stores. Our goal is to
-        make finding better prices simple and convenient.
-    </p>
+<!-- =====================================================
+     ABOUT
+===================================================== -->
 
-    <h2>How DealTrotter Works</h2>
+<section id="about">
 
-    <p>
-        Search for a product, compare available offers, and visit
-        the selected store to learn more about the deal.
-    </p>
+    <div class="container">
+
+        <h2 class="section-title">
+            About DealTrotter
+        </h2>
+
+        <p class="section-description">
+
+            DealTrotter is built to make online shopping
+            comparison simpler. Instead of checking different
+            shopping websites one by one, users can discover
+            relevant deals and compare available offers in one
+            convenient experience.
+
+        </p>
+
+
+        <div class="cards">
+
+            <div class="card">
+
+                <div class="icon">🔎</div>
+
+                <h3>
+                    Discover
+                </h3>
+
+                <p>
+                    Search for products and discover available
+                    offers from participating shopping platforms.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="icon">⚖️</div>
+
+                <h3>
+                    Compare
+                </h3>
+
+                <p>
+                    Compare prices and deal information to make
+                    a more informed shopping decision.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="icon">🛒</div>
+
+                <h3>
+                    Shop
+                </h3>
+
+                <p>
+                    When you find an offer you like, visit the
+                    relevant retailer to complete your purchase.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
 </section>
+
+
+<!-- =====================================================
+     HOW IT WORKS
+===================================================== -->
+
+<section id="how" class="how">
+
+    <div class="container">
+
+        <h2 class="section-title">
+            How DealTrotter Works
+        </h2>
+
+        <p class="section-description">
+            A simple three-step shopping discovery experience.
+        </p>
+
+
+        <div class="cards">
+
+            <div class="card">
+
+                <div class="number">
+                    01
+                </div>
+
+                <h3>
+                    Search
+                </h3>
+
+                <p>
+                    Enter the product you're looking for in
+                    DealTrotter.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="number">
+                    02
+                </div>
+
+                <h3>
+                    Compare
+                </h3>
+
+                <p>
+                    Review available offers, prices and deal
+                    information from participating retailers.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="number">
+                    03
+                </div>
+
+                <h3>
+                    Visit Store
+                </h3>
+
+                <p>
+                    Select an offer and continue to the retailer
+                    website to learn more or purchase the product.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     CATEGORIES
+===================================================== -->
+
+<section>
+
+    <div class="container">
+
+        <h2 class="section-title">
+            Explore Deals
+        </h2>
+
+        <p class="section-description">
+            DealTrotter is designed for discovering deals
+            across popular shopping categories.
+        </p>
+
+        <div class="stores">
+
+            <div class="store">
+                📱 Smartphones
+            </div>
+
+            <div class="store">
+                💻 Laptops
+            </div>
+
+            <div class="store">
+                🎧 Headphones
+            </div>
+
+            <div class="store">
+                👟 Shoes
+            </div>
+
+            <div class="store">
+                ⌚ Electronics
+            </div>
+
+            <div class="store">
+                🏠 Home Products
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     MOBILE APP
+===================================================== -->
+
+<section>
+
+    <div class="container">
+
+        <div class="app-section">
+
+            <h2>
+                DealTrotter Mobile App
+            </h2>
+
+            <p>
+
+                The DealTrotter Android application is being
+                developed to provide a convenient mobile
+                experience for searching and comparing deals.
+
+                More features and shopping integrations will be
+                introduced as the platform develops.
+
+            </p>
+
+            <div class="hero-buttons">
+
+                <a class="button primary" href="#">
+                    Android App — Coming Soon
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     AFFILIATE DISCLOSURE
+===================================================== -->
+
+<section class="legal">
+
+    <div class="container">
+
+        <div class="legal-box">
+
+            <h3>
+                Affiliate Disclosure
+            </h3>
+
+            <p>
+
+                DealTrotter may participate in affiliate marketing
+                programs. This means that when users visit a
+                participating retailer through certain links on
+                DealTrotter and make an eligible purchase,
+                DealTrotter may receive a commission at no
+                additional cost to the user.
+
+            </p>
+
+            <p>
+
+                Product prices, availability, discounts and other
+                information may change and should be verified on
+                the retailer's website before purchasing.
+
+            </p>
+
+        </div>
+
+
+        <div class="legal-box">
+
+            <h3>
+                Price & Product Information
+            </h3>
+
+            <p>
+
+                DealTrotter aims to provide useful and accurate
+                deal information. However, prices, availability,
+                specifications, promotions and other retailer
+                information can change. Users should confirm the
+                final price and product details on the retailer's
+                website before making a purchase.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     CONTACT
+===================================================== -->
+
+<section id="contact">
+
+    <div class="container">
+
+        <h2 class="section-title">
+            Contact DealTrotter
+        </h2>
+
+        <p class="section-description">
+
+            For business enquiries, partnership opportunities,
+            feedback or general questions, please contact the
+            DealTrotter team.
+
+        </p>
+
+        <div class="contact-email">
+
+            Email:
+            <a href="mailto:dealtrotterofficial@gmail.com">
+                dealtrotterofficial@gmail.com
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
 
 <footer>
-    © 2026 DealTrotter. All rights reserved.
+
+    <div class="footer-logo">
+        Deal<span>Trotter</span>
+    </div>
+
+    <div>
+        <a href="#about">About</a>
+        <a href="#how">How It Works</a>
+        <a href="#contact">Contact</a>
+    </div>
+
+    <div class="copyright">
+        © 2026 DealTrotter. All rights reserved.
+    </div>
+
 </footer>
 
+
 </body>
-</html>
+                </html>
